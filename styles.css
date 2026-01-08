@@ -7,14 +7,14 @@ body {
   padding: 5vw;
   text-align: center;
   background-color: brown;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
 }
 
 .card {
   background-color: white;
-  max-width: 400px;
-  width: 95%; /* Changed from 80% */
+  max-width: 550px;
+  width: 95%; /* Changed from 80% */;
   padding: clamp(20px, 5vw, 40px);
   margin: 0 auto;
   border-radius: 10px;
@@ -25,7 +25,7 @@ body {
 .card:hover {
   background-color: khaki;
   transform: scale(1.05);
-}
+}g
 
 h1::before {
   content: "🥳 ";
