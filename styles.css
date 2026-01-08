@@ -1,18 +1,21 @@
+* {
+  box-sizing: border-box; /* ← Add this at the very top */
+}
+
 body {
   font-family: Arial, sans-serif;
-  padding: 5vw; /* Scales with viewport */
+  padding: 5vw;
   text-align: center;
   background-color: brown;
-  width: 100%; /* Changed from 80vw */
-  box-sizing: border-box; /* Include padding in width */
+  width: 100%;
   min-height: 100vh;
 }
 
 .card {
   background-color: white;
-  max-width: 400px; /* Good! Already using max-width */
-  width: 100%; /* Add this so it's responsive below 400px */
-  padding: clamp(20px, 5vw, 40px); /* Responsive padding */
+  max-width: 400px;
+  width: 95%; /* Changed from 80% */
+  padding: clamp(20px, 5vw, 40px);
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px gray;
@@ -21,7 +24,7 @@ body {
 
 .card:hover {
   background-color: khaki;
-  transform: scale(1.05); /* Less dramatic on small screens */
+  transform: scale(1.05);
 }
 
 h1::before {
@@ -33,20 +36,20 @@ h1::after {
 }
 
 h1 {
-  font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive heading */
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
 }
 
 .message {
-  font-size: clamp(1rem, 3vw, 1.2em); /* Responsive text */
+  font-size: clamp(1rem, 3vw, 1.2em);
   margin-bottom: 20px;
 }
 
 .card-links {
   margin-top: 20px;
   display: flex;
-  flex-wrap: wrap; /* Wrap on small screens */
-  justify-content: center; /* Better for wrapped items */
-  gap: 10px; /* Modern way to add spacing */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .card-links a {
@@ -57,11 +60,12 @@ h1 {
   color: white;
   background-color: midnightblue;
   transition: background-color 0.3s ease;
-  flex: 1 1 auto; /* Flexible sizing */
-  min-width: 100px; /* Prevent too-narrow buttons */
+  flex: 1 1 auto;
+  min-width: 100px;
+  max-width: 150px; /* Added */
+  text-align: center; /* Added */
 }
 
-/* Remove hover effects on touch devices */
 @media (hover: hover) {
   .card-links a:hover {
     background-color: orangered;
@@ -84,7 +88,7 @@ section {
   margin: 20px auto;
   background-color: whitesmoke;
   max-width: 600px;
-  width: 90%; /* Add this */
+  width: 90%;
   max-height: 0px;
   padding: 0px;
   border-radius: 10px;
@@ -96,25 +100,29 @@ section {
               transform 0.3s ease;
 }
 
-/* Reduce skew effect on mobile */
 @media (max-width: 768px) {
   section:hover {
-    transform: skewX(5deg); /* Less dramatic */
+    transform: skewX(5deg);
   }
   
   .card {
-    padding: 20px; /* Fixed padding on small screens */
+    padding: 20px;
+    width: 90%; /* Give more space on tablets */
   }
 }
 
-/* Very small screens */
 @media (max-width: 480px) {
   .card-links {
-    flex-direction: column; /* Stack vertically */
+    flex-direction: column;
   }
   
   .card-links a {
     width: 100%;
+    max-width: none; /* Remove max-width constraint on mobile */
+  }
+  
+  .card {
+    width: 95%; /* More space on phones */
   }
 }
 
