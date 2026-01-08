@@ -1,23 +1,27 @@
 body {
   font-family: Arial, sans-serif;
-  padding: 40px;
+  padding: 5vw; /* Scales with viewport */
   text-align: center;
   background-color: brown;
+  width: 100%; /* Changed from 80vw */
+  box-sizing: border-box; /* Include padding in width */
+  min-height: 100vh;
 }
 
 .card {
   background-color: white;
-  max-width: 400px;
-  padding: 40px;
+  max-width: 400px; /* Good! Already using max-width */
+  width: 100%; /* Add this so it's responsive below 400px */
+  padding: clamp(20px, 5vw, 40px); /* Responsive padding */
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px gray;
-  transition: transform 0.3s, background-color 0.3s ease
+  transition: transform 0.3s, background-color 0.3s ease;
 }
 
 .card:hover {
   background-color: khaki;
-  transform: scale(1.1);
+  transform: scale(1.05); /* Less dramatic on small screens */
 }
 
 h1::before {
@@ -28,32 +32,40 @@ h1::after {
   content: " 🥳";
 }
 
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive heading */
+}
+
 .message {
-  font-size: 1.2em;
+  font-size: clamp(1rem, 3vw, 1.2em); /* Responsive text */
   margin-bottom: 20px;
 }
 
 .card-links {
   margin-top: 20px;
   display: flex;
-  justify-content: space-around;
-  
+  flex-wrap: wrap; /* Wrap on small screens */
+  justify-content: center; /* Better for wrapped items */
+  gap: 10px; /* Modern way to add spacing */
 }
 
 .card-links a {
   text-decoration: none;
-  font-size: 1em;
+  font-size: clamp(0.9rem, 2.5vw, 1em);
   padding: 10px 20px;
-  margin-left: 5px;
-  margin-right: 5px;
   border-radius: 5px;
   color: white;
   background-color: midnightblue;
   transition: background-color 0.3s ease;
+  flex: 1 1 auto; /* Flexible sizing */
+  min-width: 100px; /* Prevent too-narrow buttons */
 }
 
-.card-links a:hover {
-  background-color: orangered;
+/* Remove hover effects on touch devices */
+@media (hover: hover) {
+  .card-links a:hover {
+    background-color: orangered;
+  }
 }
 
 .card-links a:active {
@@ -68,31 +80,46 @@ h1::after {
   color: crimson;
 }
 
-
 section {
-    margin: 20px auto;
-    background-color: whitesmoke;
-    max-width: 600px;
-    max-height: 0px;
-    padding: 0px;
-    border-radius: 10px;
-    overflow: hidden;
-    opacity: 0;
-    transition:   max-height 0.5s ease, 
-                opacity 0.5s ease, 
-                padding 0.5s ease,
-                transform 0.3s ease;
+  margin: 20px auto;
+  background-color: whitesmoke;
+  max-width: 600px;
+  width: 90%; /* Add this */
+  max-height: 0px;
+  padding: 0px;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, 
+              opacity 0.5s ease, 
+              padding 0.5s ease,
+              transform 0.3s ease;
 }
 
-section:hover{
-  transform: skewX(10deg);
+/* Reduce skew effect on mobile */
+@media (max-width: 768px) {
+  section:hover {
+    transform: skewX(5deg); /* Less dramatic */
+  }
+  
+  .card {
+    padding: 20px; /* Fixed padding on small screens */
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .card-links {
+    flex-direction: column; /* Stack vertically */
+  }
+  
+  .card-links a {
+    width: 100%;
+  }
 }
 
 section:target {
-
-max-height: 600px;    
-opacity: 1;
-padding: 10px;
-  
+  max-height: 600px;    
+  opacity: 1;
+  padding: 10px;
 }
-
