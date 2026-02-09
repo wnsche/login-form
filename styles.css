@@ -32,6 +32,26 @@ a {
     padding: 20px;
 }
 
+a:hover {
+    color: rgb(255, 255, 255);
+    border-radius: 1px;
+    transition: all 0.3s ease; 
+ }
+
+
+
+
+a:active {
+    color: rgb(114, 51, 51);
+    border-radius: 1px;
+   
+}
+
+a:focus {
+    color: rgb(226, 24, 24);
+    border-radius: 1px;
+   
+}
 .page {
     background-color: rgba(95, 130, 155, 0.555);
     padding: 20px;
@@ -40,4 +60,30 @@ a {
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    display: none;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Show only the targeted section */
+section:target {
+    display: block; /* Show when targeted */
+    animation: revealFromCenter 0.8s ease;
+}
+
+@keyframes revealFromCenter {
+    from {
+        clip-path: inset(50% 0 50% 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
 }
