@@ -1,0 +1,89 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: rgba(200, 220, 230, 0.3);
+    color: rgb(20, 20, 20);
+    line-height: 1.6;
+    
+}
+
+.nav-bar {
+    background-color: rgba(122, 183, 211, 0.959);
+    border-radius: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    width: 95%; /* Match the page width */
+    max-width: 800px; /* Match the page max-width */
+    margin: 20px auto;
+    padding: 10px 0; /* Add some vertical padding */
+}
+
+a {
+    color: rgb(4, 4, 5);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0px 35px;
+    padding: 20px;
+}
+
+a:hover {
+    color: rgb(255, 255, 255);
+    border-radius: 1px;
+    transition: all 0.3s ease; 
+ }
+
+
+
+
+a:active {
+    color: rgb(114, 51, 51);
+    border-radius: 1px;
+   
+}
+
+a:focus {
+    color: rgb(226, 24, 24);
+    border-radius: 1px;
+   
+}
+.page {
+    background-color: rgba(95, 130, 155, 0.555);
+    padding: 20px;
+    width: 95%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    display: none;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Show only the targeted section */
+section:target {
+    display: block; /* Show when targeted */
+    animation: revealFromCenter 0.8s ease;
+}
+
+@keyframes revealFromCenter {
+    from {
+        clip-path: inset(50% 0 50% 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
