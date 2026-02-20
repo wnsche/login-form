@@ -7,9 +7,15 @@
 }
 
 body {
-    background-color: rgba(200, 220, 230, 0.3);
+    background-color: zrgba(10, 10, 10, 0.3);
     color: rgb(20, 20, 20);
     line-height: 1.6;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    margin: 2x0px auto;
+    
     
 }
 
@@ -21,6 +27,10 @@ body {
     max-width: 800px; /* Match the page max-width */
     margin: 20px auto;
     padding: 10px 0; /* Add some vertical padding */
+    display: flex;
+    justify-content: space-evenly; /* Center the links horizontally */
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 a {
@@ -85,5 +95,70 @@ section:target {
     }
     to {
         clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Tablet (max 768px) */
+@media (max-width: 768px) {
+    body {
+        margin: 10px auto;
+        border-radius: 5px;
+    }
+
+    .nav-bar {
+        width: 100%;
+        margin: 10px auto;
+        padding: 8px 0;
+        justify-content: center;
+    }
+
+    a {
+        font-size: 1rem;
+        margin: 0 10px;
+        padding: 10px;
+    }
+
+    .page {
+        width: 100%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+}
+
+/* Mobile (max 480px) */
+@media (max-width: 480px) {
+    body {
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        max-width: 100%;
+    }
+
+    .nav-bar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    a {
+        font-size: 0.9rem;
+        margin: 0 5px;
+        padding: 8px;
+    }
+
+    .page {
+        width: 100%;
+        margin: 10px 0;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    section {
+        padding: 12px;
+        margin-top: 10px;
     }
 }
