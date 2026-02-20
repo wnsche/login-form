@@ -79,6 +79,7 @@ section:target {
     animation: revealFromCenter 0.8s ease;
 }
 
+
 @keyframes revealFromCenter {
     from {
         clip-path: inset(50% 0 50% 0);
